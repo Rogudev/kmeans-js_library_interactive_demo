@@ -35,7 +35,6 @@ app.listen(port, () => {
 
 
 function clusterizate(dataset, k_val) {
-    // Kmeans instance create nClusters from consts
     var km = new kMeans({
         K: k_val
     });
@@ -99,15 +98,12 @@ function generateData(nPoints, centers) {
     return points;
 }
 
-// endpoint to generate and download synthetic data
+// endpoint to generate synthetic data
 app.post('/new-dataset', (req, res) => {
     const size = req.body.size;
 
-    // update nClusters in every iteration
-    nClusters = Math.floor(Math.random() * 3) + 2;
-
-    // define the cluster centers from 2 to 4
-    const nCenters = nClusters
+    // define the number of centers to points creation
+    const nCenters = Math.floor(Math.random() * 50) + 10;
 
     let centers = [];
 
@@ -127,6 +123,7 @@ app.post('/new-dataset', (req, res) => {
     }
 
     // generate synthetic data
+    n_points = Math.floor(Math.random() * 150) + 50;
     const data = generateData(50, centers);  // generate points around each center
 
     //send data

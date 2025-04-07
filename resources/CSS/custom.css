@@ -12,11 +12,11 @@ body {
 
 #new-dataset {
     background-color: #228B22;
-    color: #000035;
+    color: #FFFFFF;
 }
 #new-dataset:hover {
     background-color: #32CD32;
-    color: #000035;
+    color: #FFFFFF;
 }
 
 #apply-algorithm {
@@ -29,7 +29,7 @@ body {
 }
 
 tbody {
-    height: 50px;
+    height: 53px;
 }
 
 .text-orange {
