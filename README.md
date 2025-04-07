@@ -8,9 +8,8 @@ The demo allows users to generate random datasets, apply the K-Means algorithm t
 
 - **Generate New Dataset**: Creates a random dataset of points.
 - **Apply Algorithm**: Run the K-Means clustering algorithm with a customizable number of clusters (between 2 and 8).
-- **Visualization**: Displays the dataset and the clustered data points, with centroids marked in yellow.
-- **Info Table**: Shows key information like the number of points, the number of iterations the algorithm took, and the number of clusters.
-- **Instructions Modal**: A simple modal explaining how to use the demo.
+- **Visualization**: Displays the dataset and the clustered data points, with centroids marked in black.
+- **Info Table**: Shows info like the number of points, the number of iterations the algorithm took, and the number of clusters.
 
 
 ## Requirements
@@ -32,6 +31,7 @@ The demo allows users to generate random datasets, apply the K-Means algorithm t
 ```bash
 cd kmeans-js_library_interactive_demo
 ```
+
 3. Install dependencies
 ```bash
 npm install
@@ -41,6 +41,7 @@ npm install
 ```bash
 npm start
 ```
+
 5. Open your browser and go to http://localhost:3000 to see the demo in action.
 
 
