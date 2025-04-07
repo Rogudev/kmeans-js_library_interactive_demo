@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Means JS demo</title>
+    <link rel="icon" type="image/x-icon" href="/resources/icon.webp" />
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+    <script src="/resources/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JQUERY -->
+    <script src="/resources/jquery/jquery.min.js"></script>
+
+    <!-- CUSTOM JS -->
+    <script src="/resources/JS/customJS/backendConn.js"></script>
+</head>
+
+<body class="bg-secondary">
+
+    <div class="container-fluid my-5">
+        <section class="row">
+            <h1 class="fs-1 text-warning text-center">KMeans JS library interactive demo <button id="show-instructions"
+                    class="btn btn-lg btn-success ms-5 fs-3">Instructions</button></h1>
+        </section>
+
+        <main class="row mt-3">
+            <section class="col-12 col-lg-6 d-flex justify-content-center">
+                <canvas id="canvas" width="850" height="850" class="bg-white rounded"></canvas>
+            </section>
+
+            <section class="col-12 col-lg-6 px-5">
+                <div class="row py-5">
+                    <div class="text-center">
+                        <button id="new-dataset" class="btn btn-lg btn-info fs-2">Generate new dataset</button>
+                    </div>
+                </div>
+
+                <div class="row px-5">
+                    <h2 class="text-warning fs-2">Input number of clusters</h2>
+                    <div class="input-group mb-3">
+                        <input id="n_clusters_input" type="text" class="form-control fs-3"
+                            placeholder="Number of clusters">
+                    </div>
+                    <div class="text-center px-5">
+                        <button id="apply-algorithm" class="btn btn-lg btn-warning fs-3">Apply</button>
+                    </div>
+                </div>
+
+                <div class="row px-5 mt-5">
+                    <h2 class="text-warning fs-2">Dataset info</h2>
+                    <table class="table fs-4">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">Number of points</th>
+                                <th scope="col">Number of iterations</th>
+                                <th scope="col">Number of clusters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" style="height: 50px;">
+                                <td id="n_points_output"></td>
+                                <td id="algorithm_iterations_output"></td>
+                                <td id="clusters_applied_output"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for clustering error -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-danger fs-3" id="errorModalLabel">Error</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="fs-4">
+                        K value <b>must be</b> between 2 and 8.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary fs-5" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Instructions -->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fs-3" id="instructionsModalLabel">Instructions</h3>
+                </div>
+                <div class="modal-body">
+                    <p class="fs-4">
+                        Welcome to the K-Means clustering demo! Here's how to use the application:
+                    </p>
+                    <ul class="fs-4">
+                        <li><strong>Step 1:</strong> Click on <b>"Generate new dataset"</b> to create random data
+                            points.</li>
+                        <br>
+                        <li><strong>Step 2:</strong> Input the number of clusters (between 2 and 8) in the input field
+                            labeled "Input number of clusters".</li>
+                        <br>
+                        <li><strong>Step 3:</strong> Click on <b>"Apply"</b> to run the K-Means algorithm and see the
+                            clustering result.</li>
+                        <br>
+                        <li><strong>Step 4:</strong> View the information in the table below the canvas (e.g., number of
+                            points, iterations, clusters).</li>
+                        <br>
+                    </ul>
+                    <p class="fs-4">
+                        The K-Means algorithm will group the points into clusters, and the centroids (representative
+                        points) will be marked in black.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary fs-5" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
