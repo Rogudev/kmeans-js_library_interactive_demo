@@ -69,7 +69,7 @@ $(document).ready(function () {
     $('#new-dataset').click(function () {
 
         $.ajax({
-            url: 'http://localhost:3000/newCSV',
+            url: '/newCSV',
             method: 'GET',
             success: function (result) {
                 // convert from obj to array
@@ -101,7 +101,7 @@ $(document).ready(function () {
 
         // send dataset and k_val to clusterizate endpoint
         $.ajax({
-            url: 'http://localhost:3000/clusterizate',
+            url: '/clusterizate',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
