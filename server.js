@@ -99,15 +99,10 @@ function generateData(nPoints, centers) {
     return points;
 }
 
-// function to convert data to CSV format
-function convertToCSV(data) {
-    const header = Object.keys(data[0]).join(",");
-    const rows = data.map(row => Object.values(row).join(","));
-    return [header, ...rows].join("\n");
-}
+// endpoint to generate and download synthetic data
+app.post('/new-dataset', (req, res) => {
+    const size = req.body.size;
 
-// endpoint to generate and download synthetic data as CSV
-app.get('/newCSV', (req, res) => {
     // update nClusters in every iteration
     nClusters = Math.floor(Math.random() * 3) + 2;
 
@@ -122,8 +117,8 @@ app.get('/newCSV', (req, res) => {
         const margin = 30;
 
         // generate random x and y values in range and using the margin
-        const randX = Math.random() * (900 - 2 * margin) + margin;
-        const randY = Math.random() * (900 - 2 * margin) + margin;
+        const randX = Math.random() * (size - 2 * margin) + margin;
+        const randY = Math.random() * (size - 2 * margin) + margin;
 
         // random desviation for clustering
         const randDesv = Math.random() * 80 + 10;

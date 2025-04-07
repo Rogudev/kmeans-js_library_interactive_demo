@@ -15,43 +15,44 @@
     <!-- JQUERY -->
     <script src="/resources/jquery/jquery.min.js"></script>
 
-    <!-- CUSTOM JS -->
+    <!-- CUSTOM FILES -->
     <script src="/resources/JS/customJS/backendConn.js"></script>
+    <link rel="stylesheet" href="/resources/CSS/custom.css">
 </head>
 
-<body class="bg-secondary">
+<body>
 
     <div class="container-fluid my-5">
         <section class="row">
-            <h1 class="fs-1 text-warning text-center">KMeans JS library interactive demo <button id="show-instructions"
-                    class="btn btn-lg btn-success ms-5 fs-3">Instructions</button></h1>
+            <h1 class="fs-1 text-orange text-center">KMeans JS library interactive demo <button id="show-instructions"
+                    class="btn btn-lg ms-5 fs-3">Instructions</button></h1>
         </section>
 
         <main class="row mt-3">
             <section class="col-12 col-lg-6 d-flex justify-content-center">
-                <canvas id="canvas" width="850" height="850" class="bg-white rounded"></canvas>
+                <canvas id="canvas" width="800" height="800" class="bg-white rounded"></canvas>
             </section>
 
             <section class="col-12 col-lg-6 px-5">
                 <div class="row py-5">
                     <div class="text-center">
-                        <button id="new-dataset" class="btn btn-lg btn-info fs-2">Generate new dataset</button>
+                        <button id="new-dataset" class="btn btn-lg fs-2">Generate new dataset</button>
                     </div>
                 </div>
 
                 <div class="row px-5">
-                    <h2 class="text-warning fs-2">Input number of clusters</h2>
+                    <h2 class="text-orange fs-2">Input number of clusters</h2>
                     <div class="input-group mb-3">
                         <input id="n_clusters_input" type="text" class="form-control fs-3"
-                            placeholder="Number of clusters">
+                            placeholder="(2-8)">
                     </div>
                     <div class="text-center px-5">
-                        <button id="apply-algorithm" class="btn btn-lg btn-warning fs-3">Apply</button>
+                        <button id="apply-algorithm" class="btn btn-lg fs-3">Apply algorithm</button>
                     </div>
                 </div>
 
                 <div class="row px-5 mt-5">
-                    <h2 class="text-warning fs-2">Dataset info</h2>
+                    <h2 class="text-orange fs-2">Dataset info</h2>
                     <table class="table fs-4">
                         <thead>
                             <tr class="text-center">
@@ -61,7 +62,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center" style="height: 50px;">
+                            <tr class="text-center">
                                 <td id="n_points_output"></td>
                                 <td id="algorithm_iterations_output"></td>
                                 <td id="clusters_applied_output"></td>
@@ -75,12 +76,12 @@
     </div>
 
     <!-- Modal for clustering error -->
-    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div id="errorModal" class="modal" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title text-danger fs-3" id="errorModalLabel">Error</h3>
+                    <h5 class="modal-title">Error</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p class="fs-4">
@@ -88,19 +89,19 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary fs-5" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal for Instructions -->
-    <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
+    <div id="instructionsModal" class="modal modal-xl" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title fs-3" id="instructionsModalLabel">Instructions</h3>
+                    <h5 class="modal-title fs-5">Instructions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p class="fs-4">
@@ -126,7 +127,7 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary fs-5" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

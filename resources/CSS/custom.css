@@ -1,0 +1,37 @@
+body {
+    background-color: #000035;
+}
+
+#show-instructions {
+    background-color: #4B0082;
+    color: white
+}
+#show-instructions:hover {
+    background-color: #8A2BE2;
+}
+
+#new-dataset {
+    background-color: #228B22;
+    color: #000035;
+}
+#new-dataset:hover {
+    background-color: #32CD32;
+    color: #000035;
+}
+
+#apply-algorithm {
+    background-color: #4682B4;
+    color: #FFFFFF;
+}
+#apply-algorithm:hover {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+}
+
+tbody {
+    height: 50px;
+}
+
+.text-orange {
+    color: #FFD700
+}

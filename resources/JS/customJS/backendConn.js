@@ -69,8 +69,12 @@ $(document).ready(function () {
     $('#new-dataset').click(function () {
 
         $.ajax({
-            url: '/newCSV',
-            method: 'GET',
+            url: '/new-dataset',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                size: $('#canvas').attr('width')
+            }),
             success: function (result) {
                 // convert from obj to array
                 dataset = result.map(p => [p.x, p.y]);
