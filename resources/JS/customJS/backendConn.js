@@ -72,20 +72,9 @@ $(document).ready(function () {
             url: 'http://localhost:3000/newCSV',
             method: 'GET',
             success: function (result) {
-                // load CSV data from backend
-                $.ajax({
-                    url: 'http://localhost:3000/loadCSV',
-                    method: 'GET',
-                    success: function (result) {
-                        dataset = result.data;
-
-                        draw_points(dataset)
-                    },
-                    error: function (error) {
-                        console.error('Error processing data:', error);
-                    }
-                });
-
+                // convert from obj to array
+                dataset = result.map(p => [p.x, p.y]);
+                draw_points(dataset)
             },
             error: function (error) {
                 console.error('Error processing data:', error);
@@ -125,10 +114,6 @@ $(document).ready(function () {
                 const clusters = result.clusters
                 const centroids = result.centroids
                 const iterations = result.iterations
-
-                console.log(clusters)
-                console.log(centroids)
-                console.log(iterations)
 
                 // draw with all info
                 draw_points(dataset, clusters, centroids)

@@ -34,45 +34,6 @@ app.listen(port, () => {
 });
 
 
-
-// CSV load
-app.get('/loadCSV', (req, res) => {
-
-    // create a promise to read the CSV asynchronously
-    const load_n_process = () => {
-        return new Promise((resolve, reject) => {
-            const data = [];
-
-            // stream reader to get the data from data using the var filepath
-            fs.createReadStream(dataCSVpath)
-                .pipe(csv())
-                .on('data', (row) => {
-                    // convert row values to numbers and push them to data array
-                    const values = Object.values(row).map(Number);
-                    data.push(values);
-                })
-                .on('end', () => {
-                    // send data
-                    resolve({
-                        data
-                    });
-                })
-                .on('error', (error) => {
-                    reject(error); // reject the promise if there's an error
-                });
-        });
-    };
-
-    // call the loadCSVData function and sed the data to front 
-    load_n_process()
-        .then((result) => {
-            res.json(result); // send the result
-        })
-        .catch((error) => {
-            res.status(500).send('Error reading CSV: ' + error); // handle any errors
-        });
-});
-
 function clusterizate(dataset, k_val) {
     // Kmeans instance create nClusters from consts
     var km = new kMeans({
@@ -173,16 +134,6 @@ app.get('/newCSV', (req, res) => {
     // generate synthetic data
     const data = generateData(50, centers);  // generate points around each center
 
-    // convert the data to CSV
-    const csv = convertToCSV(data);
-
-    // write in servers storage
-    fs.writeFile(dataCSVpath, csv, (err) => {
-        if (err) {
-            return res.status(500).send('Error saving CSV file: ' + err);
-        }
-
-        // Send back a response with the download link
-        res.send(`CSV file created.`);
-    });
+    //send data
+    res.json(data);
 });
