@@ -7,7 +7,7 @@ The demo allows users to generate random datasets, apply the K-Means algorithm t
 ## Features
 
 - **Generate New Dataset**: Creates a random dataset of points.
-- **Apply Algorithm**: Run the K-Means clustering algorithm with a customizable number of clusters (between 2 and 8).
+- **Apply Algorithm**: Run the K-Means clustering algorithm with a customizable number of clusters (2 as minimum).
 - **Visualization**: Displays the dataset and the clustered data points, with centroids marked in black.
 - **Info Table**: Shows info like the number of points, the number of iterations the algorithm took, and the number of clusters.
 

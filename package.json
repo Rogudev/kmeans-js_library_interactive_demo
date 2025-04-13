@@ -11,13 +11,10 @@
   "license": "ISC",
   "description": "This is an interactive demo for the K-Means clustering algorithm using the Kmeans-js JavaScript library. The demo allows users to generate random datasets, apply the K-Means algorithm to cluster the data points, and visualize the result on a canvas.",
   "dependencies": {
-    "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "csv-parser": "^3.2.0",
     "express": "^5.1.0",
     "kmeans-js": "^0.1.2"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rogudev/kmeans-js_library_interactive_demo.git"
